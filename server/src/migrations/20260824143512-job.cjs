@@ -18,7 +18,7 @@ module.exports = {
         allowNull: false,
       },
       skills: {
-        type: Sequelize.ARRAY("STRING"),
+        type: Sequelize.ARRAY(Sequelize.STRING),
         allowNull: false,
       },
       recruiterId: {

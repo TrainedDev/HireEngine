@@ -1,6 +1,6 @@
 import { appError } from "../utils/appError.utils.js";
 import { responseUser } from "../utils/responseUser.utils.js";
-
+import { loginService, registerService } from "../services/userController.services.js"
 
 export const login = async (req, res) => {
   const { email, password } = req.body;
@@ -15,7 +15,7 @@ export const login = async (req, res) => {
 export const register = async (req, res) => {
   const { email, password, username, role } = req.body;
 
-  if (!email || !password || username || !role)
+  if (!email || !password || !username)
     appError("required details not found", 400);
 
   const response = await registerService(email, password, username, role);

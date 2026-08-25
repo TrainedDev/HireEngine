@@ -4,7 +4,7 @@ module.exports = (sq, datatype) => {
     {
       id: {
         type: datatype.UUID,
-        defaultType: datatype.UUIDV4,
+        defaultValue: datatype.UUIDV4,
         primaryKey: true,
       },
       username: {
@@ -74,7 +74,6 @@ module.exports = (sq, datatype) => {
     User.hasMany(models.AppliedJob, {
       foreignKey: "candidateId",
       onDelete: "CASCADE",
-      as: "candidate_applied_jobs",
     });
   };
 

@@ -12,8 +12,8 @@ module.exports = (sq, datatype) => {
         allowNull: false,
         validate: {
           is: {
-            args: /^[a-z]+$/,
-            msg: "only a-z allowed no spaces",
+            args: /^[a-z \s]+$/,
+            msg: "only a-z allowed",
           },
         },
       },

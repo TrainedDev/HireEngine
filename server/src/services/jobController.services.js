@@ -1,22 +1,20 @@
 import db from "../models/index.cjs";
 import { appError } from "../utils/appError.utils.js";
 
-const { Job } = db;
+const { Job, AppliedJob } = db;
 
 export const createJobService = async (
   jobTitle,
   jobDescription,
   skills,
   recruiterId,
-  jobStatus,
 ) => {
-  const newJob = await Job.create(
+  const newJob = await Job.create({
     jobTitle,
     jobDescription,
     skills,
     recruiterId,
-    jobStatus,
-  );
+  });
 
   return { success: true, message: "job successfully created", data: newJob };
 };
@@ -37,8 +35,8 @@ export const getJobService = async (id) => {
   return { success: true, message: "job fetched successfully", data: job };
 };
 
-export const getRecruiterJobsService = async (userId) => {
-  const jobs = await Job.findAll({ where: { userId } });
+export const getRecruiterJobsService = async (recruiterId) => {
+  const jobs = await Job.findAll({ where: { recruiterId } });
 
   if (!jobs) appError("jobs not found", 404);
 

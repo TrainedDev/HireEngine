@@ -19,7 +19,10 @@ module.exports = (sq, datatype) => {
   );
 
   AppliedJob.associate = (models) => {
-    AppliedJob.belongsTo(models.User, { foreignKey: "candidateId" });
+    AppliedJob.belongsTo(models.User, {
+      foreignKey: "candidateId",
+      as: "candidate_application",
+    });
     AppliedJob.belongsTo(models.Job, { foreignKey: "jobId" });
   };
 

@@ -1,5 +1,6 @@
 import {Router} from "express";
-import { login, register } from "../controllers/user.controllers";
+import { login, register } from "../controllers/user.controllers.js";
+import { asyncHandler } from "../utils/handler.utils.js";
 
 const router = Router();
 

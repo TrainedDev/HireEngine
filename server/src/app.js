@@ -13,8 +13,8 @@ app.use(express.json());
 app.get("/", (req, res) => res.send("server is live"));
 
 app.use("/api/v1/user", userRoutes);
-app.use("/api/v1/recruiter", jobRoutes);
-app.use("/api/v1/applied", appliedJobRoutes);
+app.use("/api/v1/job", jobRoutes);
+app.use("/api/v1/apply", appliedJobRoutes);
 
 sequelize
   .authenticate()

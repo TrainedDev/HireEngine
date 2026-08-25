@@ -6,7 +6,7 @@ module.exports = {
     await queryInterface.createTable("job_app_management_user", {
       id: {
         type: Sequelize.UUID,
-        defaultType: Sequelize.UUIDV4,
+        defaultValue: Sequelize.UUIDV4,
         primaryKey: true,
       },
       username: {
